@@ -26,7 +26,7 @@
                             <label for="text">Main Text:</label><br />
                             <input type="text" name="text" required="required" />
                         </p>
-                        <!--
+<!--
                         <p>
                             <label for="watermark">watermark:</label><br/>
                             <input type="text" name="watermark" required="required"/>
