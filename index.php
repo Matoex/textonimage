@@ -26,7 +26,7 @@
                             <label for="text">Main Text:</label><br />
                             <input type="text" name="text" required="required" />
                         </p>
-<!--
+                        <!--
                         <p>
                             <label for="watermark">watermark:</label><br/>
                             <input type="text" name="watermark" required="required"/>
@@ -72,8 +72,8 @@
                             //$image = imagecreatefrompng("ball.png");
                         }
 
-                        $color_white = imagecolorallocate($image, 255, 255, 255);
-                        $color_black = imagecolorallocate($image, 0, 0, 0);
+                        $maincolor = imagecolorallocate($image, 255, 255, 255);
+                        $shadowcolor = imagecolorallocate($image, 0, 0, 0);
 
                         $font_size = 50;
                         $angle = 0;
@@ -97,12 +97,13 @@
                             list($left, $bottom, $right,,, $top) = imageftbbox($font_size, $angle, $font, $text);
                         }
                         $font_size = $font_size - 5;
+                        list($left, $bottom, $right,,, $top) = imageftbbox($font_size, $angle, $font, $text);
                         $x = 150;
-                        $text_height = $top - $bottom;
-                        $y = ($height / 2) + $text_height / 2 + 45;
+                        
+                        $y = ($height / 2) -$bottom/2+45;
 
-                        imagettftext($image, $font_size, $angle, $x + 9, $y + 9, $color_black, $font, $text);
-                        imagettftext($image, $font_size, $angle, $x, $y, $color_white, $font, $text);
+                        imagettftext($image, $font_size, $angle, $x + 7, $y + 7, $shadowcolor, $font, $text);
+                        imagettftext($image, $font_size, $angle, $x, $y, $maincolor, $font, $text);
                         //Main Text end
 
                         //Title start
@@ -113,8 +114,8 @@
                         $x = 100;
                         $y = 100 - $top;
 
-                        imagettftext($image, $font_size, $angle, $x + 5, $y + 5, $color_black, $font, $title);
-                        imagettftext($image, $font_size, $angle, $x, $y, $color_white, $font, $title);
+                        imagettftext($image, $font_size, $angle, $x + 5, $y + 5, $shadowcolor, $font, $title);
+                        imagettftext($image, $font_size, $angle, $x, $y, $maincolor, $font, $title);
                         //Title end
 
                         //Watermark start
@@ -122,8 +123,8 @@
 
                         list($left, $bottom, $right,,, $top) = imageftbbox($font_size, $angle, $font, $watermark);
 
-                        imagettftext($image, $font_size, $angle, $x + 5, $height - 100 - $top + 5, $color_black, $font, $watermark);
-                        imagettftext($image, $font_size, $angle, $x, $height - 100 - $top, $color_white, $font, $watermark);
+                        imagettftext($image, $font_size, $angle, $x + 5, $height - 100 - $top + 5, $shadowcolor, $font, $watermark);
+                        imagettftext($image, $font_size, $angle, $x, $height - 100 - $top, $maincolor, $font, $watermark);
                         //Watermark end
 
 
