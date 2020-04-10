@@ -2,7 +2,7 @@
 Write a main text, a title and your watermark on ether a specific image file in your directory or insert an image url
 
 ## Examplefootage
-![2](exampleimages/2.jpg)
+![2](exampleimages/2.jpg | width=100)
 ![3](exampleimages/3.jpg)
 ![4](exampleimages/4.jpg)
 ![5](exampleimages/5.jpg)
